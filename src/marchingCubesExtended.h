@@ -6,12 +6,9 @@
 class MCE
 {
 public:
-
 	MCE(const Grid&  _grid, Mesh&        _mesh, double       _feature_angle);
 
-
 private:
-
 	typedef typename Grid::PointIdx        PointIdx;
 	typedef typename Grid::CubeIdx         CubeIdx;
 	typedef typename Grid::CubeIterator    CubeIterator;
@@ -25,8 +22,6 @@ private:
 	VertexHandle find_feature(const VertexHandleVector& _vhandles);
 
 	void flip_edges();
-
-
 
 	const Grid&      grid_;
 	Mesh&            mesh_;
