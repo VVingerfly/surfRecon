@@ -64,10 +64,18 @@ Grid tsdf_grid(const vector<float> &tsdf_data, int dims)
 }
 
 
-int main()
+int main(int argc, char * argv[])
 {
 	string        filename = "./dat/cube";
 	unsigned int  res = 256;
+
+	if (argc > 1)
+	{
+		filename = argv[1];
+		res = atoi(argv[2]);
+	}
+	cout << "file path : " << filename << endl;
+	cout << "resolution: " << res << endl;
 	vector<float> tsdf_data;
 	tsdf_reader(filename + ".tsdf", tsdf_data, res);
 
@@ -79,14 +87,14 @@ int main()
 	Mesh   mesh;
 	string fileOut;
 
-//#define MARCHING_CUBES_
+#define MARCHING_CUBES_
 
 #ifdef MARCHING_CUBES_
 	MC mc(grid, mesh);
-	fileOut = filename + "_mce.obj";
+	fileOut = filename + "_mc.obj";
 #else
 	MCE mce(grid, mesh, 30);
-	fileOut = filename + "_mc.obj";
+	fileOut = filename + "_mce.obj";
 #endif
 	
 	std::cout << "Extract surface done." << std::endl;
