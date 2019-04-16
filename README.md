@@ -5,8 +5,22 @@ Surface reconstruction from truncated signed distance function (TSDF).
 Implementations of Marching Cubes and Extended Marching Cubes algorithms.
 The code is modified and simplified from the original implementaion [IsoEx](https://www.graphics.rwth-aachen.de/IsoEx/).
 
-The code was developed under VS2015. And It depends on OpenMesh and Eigen.
+The code depends on `OpenMesh` and `Eigen`, which are included in the repo already. It was tested under Windows 10 and macOS 10.14.3.
 
+## Usage
+### Windows
+Use CMake-GUI to generate VS solution, then open it with VS.
+
+### macOS
+
+Open the terminal on the project root directory, then
+
+```bash
+mkdir build
+cd build
+cmake ..
+make
+```
 
 ## Todo
 - add Dual Marching Cubes algorithm.
